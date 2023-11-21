@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dt8dx52jx8wfp"]
+
+[ext_resource type="Texture2D" uid="uid://7e4lksxh1bsf" path="res://spritesheet.png" id="1_olygr"]
+
+[resource]
+texture = ExtResource("1_olygr")
+region_rect = Rect2(64, 64, 64, 64)

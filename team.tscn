@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfbla46p00bij"]
+
+[ext_resource type="VideoStream" path="res://video.ogv" id="1_wjtvg"]
+[ext_resource type="Script" path="res://VideoStreamPlayer.gd" id="2_je56k"]
+[ext_resource type="AudioStream" uid="uid://dmprxh8bpeso3" path="res://audio-for-the-logo_Kehua9x7.mp3" id="3_w0e6a"]
+
+[node name="TEAM" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ParallaxLayer"]
+offset_top = -18.0
+offset_right = 1936.0
+offset_bottom = 1144.0
+stream = ExtResource("1_wjtvg")
+autoplay = true
+expand = true
+buffering_msec = 480
+script = ExtResource("2_je56k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ParallaxLayer/VideoStreamPlayer"]
+stream = ExtResource("3_w0e6a")
+autoplay = true
+
+[connection signal="finished" from="ParallaxLayer/VideoStreamPlayer" to="ParallaxLayer/VideoStreamPlayer" method="_on_finished"]

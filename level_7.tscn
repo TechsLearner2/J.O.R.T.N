@@ -1,0 +1,229 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkxb5g7qdgqyp"]
+
+[ext_resource type="Texture2D" uid="uid://cakvrayu8fvxd" path="res://GRAVEYARD TILESET/png/Tiles/Tile (2).png" id="2_onu3y"]
+[ext_resource type="Texture2D" uid="uid://b3raow25gmrvx" path="res://GRAVEYARD TILESET/png/Tiles/Tile (5).png" id="3_08qoq"]
+[ext_resource type="Texture2D" uid="uid://b7aqfmoaqr68p" path="res://GRAVEYARD TILESET/png/Tiles/Tile (4).png" id="4_gwwig"]
+[ext_resource type="Texture2D" uid="uid://oc7xqgu666dc" path="res://GRAVEYARD TILESET/png/Tiles/Tile (6).png" id="5_khu2o"]
+[ext_resource type="PackedScene" uid="uid://bvjh402ylqbs2" path="res://RIZER/rizer_the_ninja.tscn" id="6_ejj5l"]
+[ext_resource type="PackedScene" uid="uid://binl8qhmkkscg" path="res://ZOMBIES/male_zombie.tscn" id="7_t8hrr"]
+[ext_resource type="PackedScene" uid="uid://b3h2cngqcsbx3" path="res://nextlevel1.tscn" id="8_cqvyb"]
+
+[sub_resource type="GDScript" id="GDScript_y3b8s"]
+script/source = "extends ParallaxBackground
+
+func _on_level_2_pressed():
+	get_tree().change_scene_to_file(\"res://level_2.tscn\")
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpxn1"]
+texture = ExtResource("2_onu3y")
+texture_region_size = Vector2i(128, 128)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-61.7354, -61.7354, 62.8579, -61.7354, 66.2253, 60.6129, -65, 61)
+
+[sub_resource type="TileSet" id="TileSet_ufd3t"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rpxn1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n3vb"]
+texture = ExtResource("3_08qoq")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-65, -57, 63, -56, 59, -2, 58, 60, -61, 59)
+
+[sub_resource type="TileSet" id="TileSet_quwyo"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1n3vb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ejp7"]
+texture = ExtResource("4_gwwig")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, -64, 9, -63, 68, -65, 67, 7, 67, 63, -18, 63, -63, 67, -66, 46, -48, 30, -53, 16, -52, -18, -56, -36)
+
+[sub_resource type="TileSet" id="TileSet_unciu"]
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_1ejp7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ldl6e"]
+texture = ExtResource("5_khu2o")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-65, -67, 65, -63, 55, -35, 59, 1, 49, 38, 64, 63, -61, 66, -64, 3)
+
+[sub_resource type="TileSet" id="TileSet_048iy"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ldl6e")
+
+[sub_resource type="GDScript" id="GDScript_4tw86"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"HP:\" + str(get_node(\"../../Rizer/RIZER THE NINJA\").health)
+"
+
+[node name="LEVEL 7" type="Node2D"]
+texture_filter = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = SubResource("GDScript_y3b8s")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Ground" type="TileMap" parent="."]
+position = Vector2(-4, 9)
+tile_set = SubResource("TileSet_ufd3t")
+format = 2
+layer_0/tile_data = PackedInt32Array(5373958, 0, 0, 5373974, 0, 0, 5373990, 0, 0, 5374006, 0, 0, 5374022, 0, 0, 5374038, 0, 0, 5374054, 0, 0, 5374070, 0, 0, 5374086, 0, 0, 5439478, 0, 0, 5374089, 0, 0)
+
+[node name="Edge Ground" type="TileMap" parent="."]
+format = 2
+
+[node name="Edge Ground2" type="TileMap" parent="."]
+format = 2
+
+[node name="Inner Ground" type="TileMap" parent="."]
+position = Vector2(-2, 0)
+tile_set = SubResource("TileSet_quwyo")
+format = 2
+layer_0/tile_data = PackedInt32Array(3276794, 0, 0, 3276799, 0, 0, 3211271, 0, 0, 3211279, 0, 0, 3211287, 0, 0, 3211295, 0, 0, 3211303, 0, 0, 3211311, 0, 0, 3211320, 0, 0, 3211319, 0, 0, 3211328, 0, 0, 3211336, 0, 0, 3211344, 0, 0, 2752596, 0, 0, 3276888, 0, 0, 2293844, 0, 0, 2818139, 0, 0, 2752603, 0, 0, 2687067, 0, 0, 2621531, 0, 0, 2555995, 0, 0, 2490459, 0, 0, 2424923, 0, 0, 2359387, 0, 0, 2293851, 0, 0, 2228315, 0, 0, 2162779, 0, 0, 2097243, 0, 0, 2031707, 0, 0, 1966171, 0, 0, 1900635, 0, 0, 1835099, 0, 0, 1769563, 0, 0, 1835097, 0, 0, 1835096, 0, 0, 1835095, 0, 0, 1835094, 0, 0, 1835093, 0, 0, 1835092, 0, 0, 1835091, 0, 0, 1769555, 0, 0, 1704019, 0, 0, 1638483, 0, 0, 1572947, 0, 0, 1179732, 0, 0, 1114196, 0, 0, 1048660, 0, 0, 983124, 0, 0, 917588, 0, 0, 852052, 0, 0, 786516, 0, 0, 720980, 0, 0, 655444, 0, 0, 589908, 0, 0, 524372, 0, 0, 458836, 0, 0, 393300, 0, 0, 327764, 0, 0, 262228, 0, 0, 196692, 0, 0, 131156, 0, 0, 131164, 0, 0, 196700, 0, 0, 262236, 0, 0, 327772, 0, 0, 393308, 0, 0, 458844, 0, 0, 524380, 0, 0, 589916, 0, 0, 655452, 0, 0, 720988, 0, 0, 786524, 0, 0, 852060, 0, 0, 917596, 0, 0, 983132, 0, 0, 1048668, 0, 0, 1114204, 0, 0, 1179740, 0, 0, 1245276, 0, 0, 1310812, 0, 0, 3342427, 0, 0, 3342426, 0, 0, 3342425, 0, 0, 3342424, 0, 0, 3342423, 0, 0, 3342422, 0, 0, 3342421, 0, 0, 3342420, 0, 0, 3342419, 0, 0, 3342418, 0, 0, 3342417, 0, 0, 3342416, 0, 0, 3342415, 0, 0, 3342414, 0, 0, 3342413, 0, 0, 3342412, 0, 0, 3342411, 0, 0, 3342410, 0, 0, 3342409, 0, 0, 3342408, 0, 0, 3342407, 0, 0, 3342406, 0, 0, 3342405, 0, 0, 3342404, 0, 0, 3342403, 0, 0, 3342402, 0, 0, 3342401, 0, 0, 3342400, 0, 0, 3342399, 0, 0, 3342398, 0, 0, 3342397, 0, 0, 3342396, 0, 0, 3342395, 0, 0, 3342394, 0, 0, 3342393, 0, 0, 3342392, 0, 0, 3342391, 0, 0, 3342390, 0, 0, 3342389, 0, 0, 3342388, 0, 0, 3342387, 0, 0, 3342386, 0, 0, 3342385, 0, 0, 3342384, 0, 0, 3342383, 0, 0, 3342382, 0, 0, 3342381, 0, 0, 3342380, 0, 0, 3342379, 0, 0, 3342378, 0, 0, 3342377, 0, 0, 3342376, 0, 0, 3342375, 0, 0, 3342374, 0, 0, 3342373, 0, 0, 3342372, 0, 0, 3342371, 0, 0, 3342370, 0, 0, 3342369, 0, 0, 3342368, 0, 0, 3342367, 0, 0, 3342366, 0, 0, 3342365, 0, 0, 3342364, 0, 0, 3342363, 0, 0, 3342362, 0, 0, 3342361, 0, 0, 3342360, 0, 0, 3342359, 0, 0, 3342358, 0, 0, 3342357, 0, 0, 3342356, 0, 0, 3342355, 0, 0, 3342354, 0, 0, 3342353, 0, 0, 3342352, 0, 0, 3342351, 0, 0, 3342350, 0, 0, 3342349, 0, 0, 3342348, 0, 0, 3342347, 0, 0, 3342346, 0, 0, 3342345, 0, 0, 3342344, 0, 0, 3342343, 0, 0, 3342342, 0, 0, 3342341, 0, 0, 3342340, 0, 0, 3342339, 0, 0, 3342338, 0, 0, 3342337, 0, 0, 3342336, 0, 0, 3407871, 0, 0, 3407870, 0, 0, 3407869, 0, 0, 3407868, 0, 0, 3407867, 0, 0, 3407866, 0, 0, 3407865, 0, 0, 3407864, 0, 0, 3407863, 0, 0, 3342327, 0, 0, 3276791, 0, 0, 3211255, 0, 0, 3145719, 0, 0, 3080183, 0, 0, 3014647, 0, 0, 2949111, 0, 0, 2883575, 0, 0, 2818039, 0, 0, 2752503, 0, 0, 2686967, 0, 0, 2621431, 0, 0, 2555895, 0, 0, 2490359, 0, 0, 2424823, 0, 0, 2359287, 0, 0, 2293751, 0, 0, 2228215, 0, 0, 2162679, 0, 0, 2097143, 0, 0, 2031607, 0, 0, 1966071, 0, 0, 1900535, 0, 0, 1834999, 0, 0, 1769463, 0, 0, 1703927, 0, 0, 1638391, 0, 0, 1572855, 0, 0, 1507319, 0, 0, 1441783, 0, 0, 1376247, 0, 0, 1310711, 0, 0, 1245175, 0, 0, 1179639, 0, 0, 1114103, 0, 0, 1048567, 0, 0, 983031, 0, 0, 917495, 0, 0, 851959, 0, 0, 786423, 0, 0, 720887, 0, 0, 655351, 0, 0, 589815, 0, 0, 524279, 0, 0, 458743, 0, 0, 393207, 0, 0, 327671, 0, 0, 262135, 0, 0, 196599, 0, 0, 131063, 0, 0, 2687052, 0, 0, 1572950, 0, 0)
+
+[node name="Wall2" type="TileMap" parent="."]
+position = Vector2(0, 69)
+tile_set = SubResource("TileSet_unciu")
+format = 2
+layer_0/tile_data = PackedInt32Array(2490365, 0, 0, 1966077, 0, 0, 1441789, 0, 0, 917501, 0, 0, 393213, 0, 0, -131075, 0, 0, 1900620, 3, 0, 1376332, 3, 0, 852044, 3, 0, 393292, 3, 0, -130996, 3, 0)
+
+[node name="Wall" type="TileMap" parent="."]
+position = Vector2(0, 68)
+tile_set = SubResource("TileSet_048iy")
+format = 2
+layer_0/tile_data = PackedInt32Array(1966077, 0, 0, 1441789, 0, 0, 917501, 0, 0, 393213, 0, 0, -131075, 0, 0)
+
+[node name="Decoration" type="TileMap" parent="."]
+format = 2
+
+[node name="Rizer" type="Node2D" parent="."]
+
+[node name="RIZER THE NINJA" parent="Rizer" instance=ExtResource("6_ejj5l")]
+position = Vector2(551, 399)
+
+[node name="Zombie" type="Node2D" parent="."]
+
+[node name="MALE ZOMBIE" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(486, 526)
+
+[node name="MALE ZOMBIE2" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(715, 512)
+
+[node name="MALE ZOMBIE3" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(194, 436)
+
+[node name="MALE ZOMBIE4" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(992, 530)
+
+[node name="MALE ZOMBIE5" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(368, 526)
+
+[node name="MALE ZOMBIE6" parent="Zombie" instance=ExtResource("7_t8hrr")]
+position = Vector2(255, 533)
+
+[node name="Zombie3" type="Node2D" parent="."]
+
+[node name="MALE ZOMBIE" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(178, 533)
+
+[node name="MALE ZOMBIE2" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(787, 517)
+
+[node name="MALE ZOMBIE3" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(118, 532)
+
+[node name="MALE ZOMBIE4" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(246, 441)
+
+[node name="MALE ZOMBIE5" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(438, 508)
+
+[node name="MALE ZOMBIE6" parent="Zombie3" instance=ExtResource("7_t8hrr")]
+position = Vector2(313, 535)
+
+[node name="Zombie4" type="Node2D" parent="."]
+
+[node name="MALE ZOMBIE" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(1059, 522)
+
+[node name="MALE ZOMBIE2" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(1122, 531)
+
+[node name="MALE ZOMBIE3" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(141, 429)
+
+[node name="MALE ZOMBIE4" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(923, 534)
+
+[node name="MALE ZOMBIE5" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(556, 520)
+
+[node name="MALE ZOMBIE6" parent="Zombie4" instance=ExtResource("7_t8hrr")]
+position = Vector2(1066, 424)
+
+[node name="Zombie2" type="Node2D" parent="."]
+
+[node name="MALE ZOMBIE" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(997, 460)
+
+[node name="MALE ZOMBIE2" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(862, 525)
+
+[node name="MALE ZOMBIE3" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(909, 437)
+
+[node name="MALE ZOMBIE4" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(632, 517)
+
+[node name="MALE ZOMBIE5" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(1115, 451)
+
+[node name="MALE ZOMBIE6" parent="Zombie2" instance=ExtResource("7_t8hrr")]
+position = Vector2(302, 445)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HP" type="Label" parent="UI"]
+offset_left = 32.0
+offset_top = 7.0
+offset_right = 295.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0.894118, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "HP"
+script = SubResource("GDScript_4tw86")
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 267.0
+offset_top = 11.0
+offset_right = 765.0
+offset_bottom = 94.0
+text = "                                                        LEVEL 1"
+
+[node name="NEXTLEVEL1" parent="." instance=ExtResource("8_cqvyb")]
+position = Vector2(80, 522)

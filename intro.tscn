@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2uuiw4vbngof"]
+
+[ext_resource type="Script" path="res://Intro.gd" id="1_8vols"]
+[ext_resource type="FontFile" uid="uid://doo03l8xyrmg4" path="res://KaushanScript-Regular.otf" id="3_jporh"]
+[ext_resource type="AudioStream" uid="uid://delxorhhtbpek" path="res://INTRO.mp3" id="3_xnwhd"]
+[ext_resource type="FontFile" uid="uid://csd3ef4juxlcx" path="res://CooperHewitt-BookItalic.otf" id="4_n1lvs"]
+[ext_resource type="VideoStream" path="res://ANIMBG8.ogv" id="5_mj60y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5dbt"]
+font_size = 21
+font_color = Color(0.454902, 0.509804, 0, 1)
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_8vols")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1984.0
+offset_bottom = 1088.0
+stream = ExtResource("5_mj60y")
+autoplay = true
+expand = true
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xnwhd")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1322.0
+offset_bottom = 786.0
+scale = Vector2(1.50083, 1.38464)
+theme_override_colors/font_color = Color(0.266667, 0.607843, 0.462745, 1)
+theme_override_fonts/font = ExtResource("3_jporh")
+theme_override_font_sizes/font_size = 23
+text = "Rizer was a really skilled and mastered in ninja Tactics of attacking and etc.
+
+He learned them from his Master who is also known as Jin the Great.
+
+His master was the super ninja back then and saved many poor people from dangers.
+
+The Villain Sir Satan,  who is the king of the place and start to totures his peoples to pay huge  taxes .
+
+Jin the Great stopped him and fight back to him, Sir Satan who also masters in Magics and spells , created a whole army of zombies .
+
+Once , Jin the Great was defeated and killed by Sir Satan.
+
+Rizer takes back his master place to save the people and take revenge and also destroy Sir Satan's Army.
+
+There are few levels as the stages of destroying and going towards Sir Satan."
+label_settings = SubResource("LabelSettings_h5dbt")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1461.0
+offset_top = 798.0
+offset_right = 1686.0
+offset_bottom = 930.0
+scale = Vector2(1.50359, 1.45849)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("4_n1lvs")
+theme_override_font_sizes/font_size = 22
+text = "
+
+ LET'S FIGHT     
+
+
+"
+clip_text = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

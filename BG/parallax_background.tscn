@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1p6qae7a5eml"]
+
+[ext_resource type="Script" path="res://BG/parallax_background.gd" id="1_vrdi2"]
+[ext_resource type="Script" path="res://BG/VideoStreamPlayer.gd" id="3_onahe"]
+[ext_resource type="Theme" uid="uid://c6b6rvah3dhs0" path="res://THEME.tres" id="3_tuluw"]
+[ext_resource type="FontFile" uid="uid://csd3ef4juxlcx" path="res://CooperHewitt-BookItalic.otf" id="4_kkxne"]
+[ext_resource type="VideoStream" path="res://main2.ogv" id="4_o0dwe"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_vrdi2")
+metadata/_edit_horizontal_guides_ = [552.0]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("4_o0dwe")
+autoplay = true
+expand = true
+script = ExtResource("3_onahe")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="GIVE UP" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = -0.017361
+anchor_top = 0.0910495
+anchor_right = -0.017361
+anchor_bottom = 0.0910495
+offset_left = 935.0
+offset_top = 633.0
+offset_right = 1176.0
+offset_bottom = 729.0
+rotation = 0.00281079
+scale = Vector2(1.45585, 1.80487)
+pivot_offset = Vector2(289.491, -118.177)
+theme = ExtResource("3_tuluw")
+theme_override_fonts/font = ExtResource("4_kkxne")
+theme_override_font_sizes/font_size = 21
+text = "EXIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="PLAY" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = -0.0355904
+anchor_top = 0.12037
+anchor_right = -0.0355904
+anchor_bottom = 0.120372
+offset_left = 974.0
+offset_top = 402.0
+offset_right = 1215.0
+offset_bottom = 497.999
+rotation = 0.00281079
+scale = Vector2(1.45773, 1.71422)
+pivot_offset = Vector2(289.491, -118.177)
+theme = ExtResource("3_tuluw")
+theme_override_fonts/font = ExtResource("4_kkxne")
+theme_override_font_sizes/font_size = 21
+text = "PLAY"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="GIVE UP" to="." method="_on_give_up_pressed"]
+[connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]

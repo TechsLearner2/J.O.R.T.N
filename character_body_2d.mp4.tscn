@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://od6edelqaore"]
+
+[ext_resource type="Texture2D" uid="uid://c8r1i17vmw0uk" path="res://RIZER/NINJA HERO/png/Jump_Throw__000.png" id="1_3bcd4"]
+[ext_resource type="Texture2D" uid="uid://4nf4mspibrg4" path="res://RIZER/NINJA HERO/png/Jump_Throw__001.png" id="2_4xs1n"]
+[ext_resource type="Texture2D" uid="uid://bwihwvnxnjumr" path="res://RIZER/NINJA HERO/png/Jump_Throw__002.png" id="3_xwv1w"]
+[ext_resource type="Texture2D" uid="uid://diamyxqusu2dk" path="res://RIZER/NINJA HERO/png/Jump_Throw__003.png" id="4_yfv3x"]
+[ext_resource type="Texture2D" uid="uid://b4v8apdfim8wd" path="res://RIZER/NINJA HERO/png/Jump_Throw__004.png" id="5_intfk"]
+[ext_resource type="Texture2D" uid="uid://dluu8rddy3tmu" path="res://RIZER/NINJA HERO/png/Jump_Throw__005.png" id="6_a60vq"]
+[ext_resource type="Texture2D" uid="uid://ibh0oplswc5t" path="res://RIZER/NINJA HERO/png/Jump_Throw__006.png" id="7_n0tew"]
+[ext_resource type="Texture2D" uid="uid://brxfdte2hsqye" path="res://RIZER/NINJA HERO/png/Jump_Throw__007.png" id="8_pb57s"]
+[ext_resource type="Texture2D" uid="uid://dlpoiccqvgr0n" path="res://RIZER/NINJA HERO/png/Jump_Throw__008.png" id="9_4xlle"]
+[ext_resource type="Texture2D" uid="uid://brm07hstilkls" path="res://RIZER/NINJA HERO/png/Jump_Throw__009.png" id="10_u4duy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40i86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3bcd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4xs1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xwv1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yfv3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_intfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a60vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n0tew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pb57s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4xlle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u4duy")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 12.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_40i86")
+animation = &"jump"
+frame_progress = 0.045389
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

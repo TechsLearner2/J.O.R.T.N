@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="JOURNEY OF RIZER THE NINJA"
+config/description="A Adventuring Game Made by TEAM Zombie Squad.....Get ready for Some Zombies!!!!"
+run/main_scene="res://intro1.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/bg_color=Color(0.227451, 0, 0.298039, 1)
+boot_splash/image="res://T.Z.S.png"
+config/icon="res://ICON J.O.R.T.N.png"
+config/windows_native_icon="res://ICON J.O.R.T.N.ico"
+boot_splash/size/mode=3
+
+[autoload]
+
+Utils="*res://GLOBAL/Utils.gd"
+Game="*res://GLOBAL/Game.gd"
+
+[display]
+
+window/size/mode=3
+window/size/resizable=false
+
+[gui]
+
+theme/custom="res://THEME.tres"
+
+[input]
+
+ATTACK={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_s3tc_bptc=true

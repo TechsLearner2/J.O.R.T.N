@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmya5ilo7xm6i"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_x63a5"]
+[ext_resource type="FontFile" uid="uid://csd3ef4juxlcx" path="res://CooperHewitt-BookItalic.otf" id="3_nr1pd"]
+[ext_resource type="Theme" uid="uid://c6b6rvah3dhs0" path="res://THEME.tres" id="4_a8fmw"]
+[ext_resource type="Script" path="res://QUIT.gd" id="5_6tkb4"]
+[ext_resource type="VideoStream" path="res://go2.ogv" id="5_78vuf"]
+[ext_resource type="AudioStream" uid="uid://cgkronbroru0t" path="res://gAMEOVER.mp3" id="6_rmxe5"]
+
+[node name="PLAYERDEAD" type="Node2D"]
+script = ExtResource("1_x63a5")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("5_78vuf")
+autoplay = true
+expand = true
+
+[node name="MAIN_MENU" type="Button" parent="."]
+offset_left = 281.0
+offset_top = 600.0
+offset_right = 841.0
+offset_bottom = 901.0
+theme = ExtResource("4_a8fmw")
+theme_override_fonts/font = ExtResource("3_nr1pd")
+theme_override_font_sizes/font_size = 30
+text = "PLAY AGAIN!"
+
+[node name="QUIT" type="Button" parent="."]
+offset_left = 1014.0
+offset_top = 600.0
+offset_right = 1568.0
+offset_bottom = 900.0
+theme = ExtResource("4_a8fmw")
+theme_override_fonts/font = ExtResource("3_nr1pd")
+theme_override_font_sizes/font_size = 30
+text = "GIVE UP!"
+script = ExtResource("5_6tkb4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rmxe5")
+autoplay = true
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="pressed" from="MAIN_MENU" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]

@@ -1,0 +1,16 @@
+VideoStreamPlayer
+AnimatedSprite2D
+ParallaxBackground
+Timer
+Label
+ParallaxLayer
+AudioStreamPlayer
+Button
+TileMap
+AnimationTree
+AnimationPlayer
+Window
+Camera2D
+CollisionShape2D
+AnimatableBody2D
+CharacterBody2D

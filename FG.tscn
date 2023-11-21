@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://tkn5dmvpdhgu"]
+
+[ext_resource type="VideoStream" path="res://BG/OUTRO 2 (online-video-cutter.com).ogv" id="1_qbwja"]
+[ext_resource type="Script" path="res://FGVIDEO.gd" id="2_s8fli"]
+[ext_resource type="AudioStream" uid="uid://bmaycien4m1jo" path="res://FG.mp3" id="2_tg6u8"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ParallaxLayer"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("1_qbwja")
+autoplay = true
+expand = true
+script = ExtResource("2_s8fli")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tg6u8")
+autoplay = true
+
+[connection signal="finished" from="ParallaxLayer/VideoStreamPlayer" to="ParallaxLayer/VideoStreamPlayer" method="_on_finished"]

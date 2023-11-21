@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bga2nrthmegxb"]
+
+[ext_resource type="FontFile" uid="uid://doo03l8xyrmg4" path="res://KaushanScript-Regular.otf" id="1_cvest"]
+
+[resource]
+font = ExtResource("1_cvest")
+font_color = Color(0.945098, 0.121569, 0, 1)
+outline_size = 21
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.431373, 0.333333, 0, 0)

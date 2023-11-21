@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dn0va2c5nj1pb"]
+
+[ext_resource type="Script" path="res://TUTO.gd" id="1_fyrp0"]
+[ext_resource type="Texture2D" uid="uid://dq2th7r7eoi43" path="res://1.png" id="2_4t4i0"]
+[ext_resource type="Texture2D" uid="uid://dk8xx56c5xf4c" path="res://2.png" id="3_g03m5"]
+[ext_resource type="Texture2D" uid="uid://dh1elp28gj7wl" path="res://3.png" id="4_or4sr"]
+[ext_resource type="Texture2D" uid="uid://bs6v4xegduxx8" path="res://4.png" id="5_31ntm"]
+[ext_resource type="Texture2D" uid="uid://cnl054d3stvvy" path="res://5.png" id="6_fma7g"]
+[ext_resource type="Texture2D" uid="uid://1bqisg8laqa5" path="res://6.png" id="7_8ky8l"]
+[ext_resource type="Texture2D" uid="uid://bdnvjblqc7j4m" path="res://7.png" id="8_887vv"]
+[ext_resource type="Texture2D" uid="uid://nby78r6pgt6u" path="res://8.png" id="9_p6r7t"]
+[ext_resource type="Texture2D" uid="uid://ssdridkkpet4" path="res://9.png" id="10_j7nmt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rpvd"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("2_4t4i0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_g03m5")
+}, {
+"duration": 10.0,
+"texture": ExtResource("4_or4sr")
+}, {
+"duration": 4.0,
+"texture": ExtResource("5_31ntm")
+}, {
+"duration": 10.0,
+"texture": ExtResource("6_fma7g")
+}, {
+"duration": 4.0,
+"texture": ExtResource("7_8ky8l")
+}, {
+"duration": 5.0,
+"texture": ExtResource("8_887vv")
+}, {
+"duration": 4.0,
+"texture": ExtResource("9_p6r7t")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_j7nmt")
+}],
+"loop": true,
+"name": &"TUTORIAL",
+"speed": 1.5
+}]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_fyrp0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(712, 128)
+scale = Vector2(0.216667, 0.233333)
+sprite_frames = SubResource("SpriteFrames_6rpvd")
+animation = &"TUTORIAL"
+frame_progress = 0.237853
+speed_scale = 0.5
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

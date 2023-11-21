@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dls3fqt3e1yy3"]
+
+[ext_resource type="FontFile" uid="uid://csd3ef4juxlcx" path="res://CooperHewitt-BookItalic.otf" id="1_acnbv"]
+
+[resource]
+font = ExtResource("1_acnbv")
+font_size = 30
+font_color = Color(0.203922, 0.611765, 0, 1)
+outline_size = 21
+outline_color = Color(0, 0, 0, 1)

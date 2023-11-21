@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0sxtc2gfg4uy"]
+
+[ext_resource type="VideoStream" path="res://r.ogv" id="1_0vqam"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ParallaxLayer"]
+offset_right = 1984.0
+offset_bottom = 1088.0
+stream = ExtResource("1_0vqam")
+autoplay = true
+expand = true

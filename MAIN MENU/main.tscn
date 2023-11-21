@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqdbvam1q2vvd"]
+
+[ext_resource type="Script" path="res://MAIN MENU/main.gd" id="1_7gwrk"]
+[ext_resource type="PackedScene" uid="uid://d1p6qae7a5eml" path="res://BG/parallax_background.tscn" id="2_pu428"]
+[ext_resource type="AudioStream" uid="uid://cfm3cqbnygbn1" path="res://MAIN.mp3" id="3_nrn7h"]
+
+[node name="MAIN" type="Node2D"]
+script = ExtResource("1_7gwrk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nrn7h")
+autoplay = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_pu428")]

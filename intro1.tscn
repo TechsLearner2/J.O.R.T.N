@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4ai3qsjv7uof"]
+
+[ext_resource type="PackedScene" uid="uid://bfbla46p00bij" path="res://team.tscn" id="1_4smcp"]
+[ext_resource type="Script" path="res://intro1.gd" id="1_syomo"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_syomo")
+
+[node name="TEAM" parent="." instance=ExtResource("1_4smcp")]

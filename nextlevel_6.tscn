@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://depvwy8v5qrgw"]
+
+[ext_resource type="Script" path="res://LEVEL5.gd" id="1_sgubi"]
+
+[sub_resource type="GDScript" id="GDScript_y0g6u"]
+script/source = "extends Area2D
+
+
+
+
+func _on_body_entered() -> void:
+	pass
+
+
+func _on_body_exited(body):
+	if body.get_name() == \"MALE ZOMBIE\":
+		$FG.visible = true
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file(\"res://FG.tscn\")
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2exmv"]
+radius = 47.0
+height = 160.0
+
+[node name="NEXTLEVEL6" type="Area2D"]
+position = Vector2(688, 520)
+script = SubResource("GDScript_y0g6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2exmv")
+
+[node name="FG" type="RichTextLabel" parent="."]
+offset_left = -48.0
+offset_top = -56.0
+offset_right = 48.0
+offset_bottom = 8.0
+text = "FINAL GAME"
+script = ExtResource("1_sgubi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

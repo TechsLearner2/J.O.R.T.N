@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8k3i6xvtnpb2"]
+
+[ext_resource type="Script" path="res://LEVEL5.gd" id="1_iwy6o"]
+
+[sub_resource type="GDScript" id="GDScript_y0g6u"]
+script/source = "extends Area2D
+
+
+
+func _on_body_entered() -> void:
+	pass
+#
+
+
+func _on_body_exited(body):
+	if body.get_name() == \"MALE ZOMBIE\":
+		$LEVEL6.visible = true
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file(\"res://level_6.tscn\")
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2exmv"]
+radius = 55.9472
+height = 160.0
+
+[node name="NEXTLEVEL5" type="Area2D"]
+position = Vector2(-24, 536)
+script = SubResource("GDScript_y0g6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -3.12627
+shape = SubResource("CapsuleShape2D_2exmv")
+
+[node name="LEVEL6" type="RichTextLabel" parent="."]
+offset_left = -31.0
+offset_top = -54.0
+offset_right = 30.0
+offset_bottom = -14.0
+text = "LEVEL 6
+"
+script = ExtResource("1_iwy6o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]
